@@ -131,6 +131,13 @@ This is basically just a file that is saved in the same directory as the root of
 The example below
 
 ```{bash}
+### GENERAL ###
+data/
+output/
+*.csv
+*.xlsx
+
+### R ###
 # History files
 .Rhistory
 .Rapp.history
@@ -139,12 +146,47 @@ The example below
 .RData
 .RDataTmp
 
+# User-specific files
+.Ruserdata
+
+# Example code in package build process
+*-Ex.R
+
+# Output files from R CMD build
+/*.tar.gz
+
+# Output files from R CMD check
+/*.Rcheck/
+
+# RStudio files
+.Rproj.user/
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# knitr and R markdown default cache directories
+*_cache/
+/cache/
+
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
 # R Environment Variables
 .Renviron
 
-# everything saved in the output and data directories
-output/
-data/
+# pkgdown site
+docs/
+
+# translation temp files
+po/*~
+
+# RStudio Connect folder
+rsconnect/
 
 
 ```
