@@ -11,6 +11,7 @@ format:
     toc-title: Contents
     toc-location: left
     css: ["/home/data/css_styles/styles.css"]
+  gfm: default
 number-sections: true
 editor: source
 editor_options: 
