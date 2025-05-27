@@ -3,7 +3,7 @@ title: "GIT & GitHub for version control"
 author: "Tivan"
 date: 2025/05/27
 format: 
-  html:
+  gfm:
     self-contained: true
     toc: true
     toc_float: true
