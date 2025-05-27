@@ -10,6 +10,7 @@ format:
     toc-title: Contents
     toc-location: left
     css: ["/home/data/css_styles/styles.css"]
+number-sections: true
 editor: source
 editor_options: 
   chunk_output_type: console
@@ -20,11 +21,11 @@ execute:
   message: false
 ---
 
-# Introduction
+# Introduction {#sec-intro}
 
 Git is software for version control. Git takes snapshots of the state of your repository at a specific point in time – these are called __commits__. Unlike OneDrive, Git does not track revision changes as a series of modifications (deltas). Git stores commits as snapshots of entire files that have changed, not as deltas 
 
-Git is enhanced for local development because you work on a copy of the repository on your local machine. This is basically a clone of the remote repository on a Git server (we'll be using GitHub, but there are many other Git server options). Your local Git has the resources and the and snapshots of the revision changes made on these resources all in one location. These collections of linked snapshots are called __repository commit history__ (repo history for short). This will allow us to work even without an internet connection on our local and add the changes to the Git server later on. Git also streamlines nonlinear development through __branches__, but we won't delve too deeply into that in this document.   
+Git is enhanced for local development because you work on a copy of the repository on your local machine. This is basically a clone of the remote repository on a Git server (we'll be using GitHub, but there are many other Git server options). Your local Git has the resources and the snapshots of the revision changes made on these resources all in one location. These collections of linked snapshots are called __repository commit history__ (repo history for short). This will allow us to work even without an internet connection on our local and add the changes to the Git server later on. Git also streamlines nonlinear development through __branches__, but we won't delve too deeply into that in this document.   
 
 GitHub is where sharing happens. Although it has many features, the main ones we'll be discussing in this document is providing a central repository that different remote users can draw from and providing security for the repo histories that we store on it. 
 
@@ -33,7 +34,7 @@ For help and information you can visit the [git documentation](https://mirrors.e
 This document is based mostly on [Happy Git and GitHub for the useR](https://happygitwithr.com/) written by [Jenny Bryan](https://jennybryan.org/about/). There is also a great book by Ponuthorai and Loeliger called _Version Control with Git_. 
 
 
-# Installation & acquaintance 
+# Installation & acquaintance {#sec-install} 
 
 This section walks through setting up Git and GitHub. It also shows how to get them to talk to each other. 
 
@@ -103,7 +104,32 @@ Now that we have everything in place, we can connect to GitHub! The easiest way 
   * Execute `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git` replacing the link with the actual one you copied
   * If the repository is in the `~/tmp` directory, it means you're good to go
 
-# Be pushy
+# Initialising & adding remote {#sec-init}
+
+To allow Git to track our project, we have to create a Git repository. We can do this by navigating to the file and then running `git init`. The example below shows how to create a new repository and then convert it to a git repository but `git init` can also be used to convert existing directories populated with files into Git repositories.  
+
+```{bash}
+mkdir ~/projects/my_project
+cd ~/projects/my_project
+git init -b main
+```
+
+Now we have a git repository called `my_project`. We want to add a .gitignore file to avoid tracking unnecessary files (more about this in the @sec-ignore). The next step is to create an empty GitHub repository that we can add as the remote repository for our local Git repository. 
+
+* __Step 1__: go to GitHub, navigate to your repositories and click on __New__
+* __Step 2__: name the repository on GitHub – ideally we would use the same name given to the local Git repository (from the example above it would be my_project)
+  + Note: do not add a gitignore or README from GitHub. This might interfere with our existing repository
+* __Step 3__: Click on __Create Repository__
+  + GitHub should provide you with a couple of steps for how you go about adding the remote repository
+* __Step 4__: On our local machine, in the Git repository (my_project), run `git commit -m "first commit"` (more on this in @sec-push). This will send our first snapshot to our local Git
+* __Step 5__: copy the link of the remote repository on GitHub and add the remote repository by running 
+  + `git remote add origin https://github.com/your_username/my_project.git`
+* __Step 6__: Our local Git should now be linked to the GitHub repository. We can push the changes by running the code below
+  + `git push -u origin main`
+* __Step 7__: refresh the page for the repository on GitHub, you should see the files from your local Git repository
+
+
+# Be pushy {#sec-push}
 
 Git is definitive and requires you to be explicit. Unlike software like OneDrive it does not automatically store the changes you have made. You have to tell it when to `commit` a change to your local Git, and then again tell it when to `push` that change to GitHub. I find it best to go about this using five commands: `git status`, `git pull`,  `git add`, `git commit`, and `git push` (usually in that order). 
 
@@ -120,7 +146,7 @@ Git is definitive and requires you to be explicit. Unlike software like OneDrive
   * Now that your changes have been commited, you can use `git push` to send them to GitHub 
 
 
-# Don't overcommit
+# Don't overcommit {#sec-ignore}
 
 Some files are like skunks – they are not worth tracking. Such files are usually large and static, sensitive, or some combination of both. And, like skunks, they leave you with a rotten smell if you track them. Either because they expose sensitive information to the world or because they devour your storage. 
 
