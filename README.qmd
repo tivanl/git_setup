@@ -63,8 +63,8 @@ sudo apt install git-all
 Once git is installed, you have to introduce yourself. You can use the sample code below substituting your details for the example details below. If you are working in Windows, rather work with Git Bash than PowerShell or 
 
 ```{bash}
-git config user.name "Peter Kropotkin"
-git config user.email "peter@ancom.com"
+git config user.name "Keter Propotkin"
+git config user.email "keter@coman.com"
 git config --global --list
 ```
 
