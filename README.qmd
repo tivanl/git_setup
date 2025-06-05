@@ -11,7 +11,6 @@ format:
     toc-title: Contents
     toc-location: left
     css: ["/home/data/css_styles/styles.css"]
-  gfm: default
 number-sections: true
 editor: source
 editor_options: 
@@ -21,11 +20,17 @@ execute:
   eval: false
   warning: false
   message: false
+code-block-bg: true
 ---
 
 # Introduction {#sec-intro}
 
 Git is software for version control. Git takes snapshots of the state of your repository at a specific point in time – these are called __commits__. Unlike OneDrive, Git does not track revision changes as a series of modifications (deltas). Git stores commits as snapshots of entire files that have changed, not as deltas 
+
+```{r}
+this is some R code
+```
+
 
 Git is enhanced for local development because you work on a copy of the repository on your local machine. This is basically a clone of the remote repository on a Git server (we'll be using GitHub, but there are many other Git server options). Your local Git has the resources and the snapshots of the revision changes made on these resources all in one location. These collections of linked snapshots are called __repository commit history__ (repo history for short). This will allow us to work even without an internet connection on our local and add the changes to the Git server later on. Git also streamlines nonlinear development through __branches__, but we won't delve too deeply into that in this document.   
 
@@ -43,6 +48,10 @@ This section walks through setting up Git and GitHub. It also shows how to get t
 ## Git
 
 To check if git is already available on your system, run the command below. 
+
+```{r}
+#| classes: styled-output
+```
 
 ```{bash}
 git --version
@@ -156,7 +165,7 @@ Some files are like skunks – they are not worth tracking. Such files are usual
 
 This is basically just a file that is saved in the same directory as the root of the repository called `.gitignore`. It contains instructions of which files to ignore. When creating a new repository on GitHub, you can choose to include a gitignore file with the repository. There are templates you can choose from which will add the most popular files you want to exclude from tracking based on the software you are using for your project. 
 
-The example below
+__For R projects__
 
 ```{bash}
 ### GENERAL ###
@@ -220,6 +229,60 @@ rsconnect/
 ```
 
 
+__For python projects__
+
+```{bash}
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
+
+# Sphinx documentation
+docs/_build/
+```
 
 
 

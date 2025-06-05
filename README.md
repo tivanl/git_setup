@@ -236,7 +236,7 @@ templates you can choose from which will add the most popular files you
 want to exclude from tracking based on the software you are using for
 your project.
 
-The example below
+**For R projects**
 
 ``` {bash}
 ### GENERAL ###
@@ -296,4 +296,59 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
+```
+
+**For python projects**
+
+``` {bash}
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
+
+# Sphinx documentation
+docs/_build/
 ```
